@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">♡</span>
+        <span>Untuk Pacarku</span>
+      </div>
+      <div class="progress-pill">
+        <span id="progressText">0/3 misi selesai</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">sebuah game kecil, tapi niatnya besar</p>
+          <h1>Hai sayang, ini petualangan kecil tentang kita.</h1>
+          <p>
+            Selesaikan quiz, cari harta tersembunyi, lalu buka pesan rahasia
+            yang cuma disiapkan untuk kamu.
+          </p>
+          <button class="primary-action" id="startButton">Mulai Main</button>
+        </div>
+        <div class="polaroid-stack" aria-label="Dekorasi kenangan romantis">
+          <div class="photo-card photo-a">
+            <span>our little world</span>
+          </div>
+          <div class="photo-card photo-b">
+            <span>favorite smile</span>
+          </div>
+          <div class="photo-card photo-c">
+            <span>always you</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-shell" id="game">
+        <nav class="mission-tabs" aria-label="Pilih misi">
+          <button class="tab active" data-target="quizPanel">Quiz Kita</button>
+          <button class="tab" data-target="huntPanel">Treasure Hunt</button>
+          <button class="tab" data-target="vaultPanel">Unlock Message</button>
+        </nav>
+
+        <section class="panel active" id="quizPanel">
+          <div class="panel-heading">
+            <p class="eyebrow">misi pertama</p>
+            <h2>Quiz hubungan</h2>
+          </div>
+          <div class="quiz-layout">
+            <div>
+              <p class="question-count" id="questionCount">Pertanyaan 1 dari 5</p>
+              <h3 id="questionText">Loading...</h3>
+              <div class="answers" id="answers"></div>
+            </div>
+            <aside class="score-box">
+              <span>Skor manis</span>
+              <strong id="scoreText">0</strong>
+              <p id="quizFeedback">Pilih jawaban yang paling cocok menurut kamu.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel" id="huntPanel">
+          <div class="panel-heading">
+            <p class="eyebrow">misi kedua</p>
+            <h2>Treasure hunt</h2>
+          </div>
+          <p class="panel-note">
+            Cari 5 hati kecil yang tersembunyi di taman kenangan ini. Setiap hati
+            membawa satu potongan pesan.
+          </p>
+          <div class="hunt-board" id="huntBoard">
+            <button class="heart-token token-1" aria-label="Harta tersembunyi 1">♡</button>
+            <button class="heart-token token-2" aria-label="Harta tersembunyi 2">♡</button>
+            <button class="heart-token token-3" aria-label="Harta tersembunyi 3">♡</button>
+            <button class="heart-token token-4" aria-label="Harta tersembunyi 4">♡</button>
+            <button class="heart-token token-5" aria-label="Harta tersembunyi 5">♡</button>
+            <div class="memory-lane">
+              <span>tempat pertama kita tertawa lama</span>
+              <span>lagu yang selalu bikin kangen</span>
+              <span>janji kecil yang tetap aku ingat</span>
+            </div>
+          </div>
+          <div class="found-strip" id="foundStrip"></div>
+        </section>
+
+        <section class="panel" id="vaultPanel">
+          <div class="panel-heading">
+            <p class="eyebrow">misi terakhir</p>
+            <h2>Unlock message</h2>
+          </div>
+          <div class="vault">
+            <div class="lock" id="lockIcon">♥</div>
+            <h3 id="vaultTitle">Pesan rahasia masih terkunci</h3>
+            <p id="vaultMessage">
+              Selesaikan quiz dan treasure hunt dulu ya, sayang. Setelah itu ada
+              surat kecil yang menunggu kamu di sini.
+            </p>
+            <button class="primary-action" id="unlockButton">Coba Buka</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
