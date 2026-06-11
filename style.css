@@ -185,7 +185,19 @@ h3 {
   box-shadow: var(--shadow);
   background-position: center;
   background-size: cover;
+  cursor: pointer;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    rotate 0.3s ease;
 }
+
+.photo-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow: 0 32px 80px rgba(94, 38, 62, 0.35);
+  z-index: 5;
+}
+
 
 .photo-card span {
   position: absolute;
@@ -569,4 +581,91 @@ h3 {
     left: 13%;
     bottom: 58%;
   }
+}
+
+/* Style untuk Preview Modal (Lightbox) */
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.preview-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(49, 34, 49, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.preview-content {
+  position: relative;
+  z-index: 101;
+  width: min(90%, 420px);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.preview-modal.show .preview-content {
+  transform: scale(1);
+}
+
+.preview-card-wrapper {
+  background: white;
+  padding: 16px;
+  padding-bottom: 54px;
+  border-radius: 8px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.preview-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  color: var(--wine);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.preview-close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.preview-close:hover {
+  transform: scale(1.2);
 }

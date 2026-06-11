@@ -243,6 +243,42 @@ heartTokens.forEach((token, index) => {
 });
 unlockButton.addEventListener("click", unlockVault);
 
+// Polaroid Preview Modal Logic
+const previewModal = document.getElementById("previewModal");
+const previewImage = document.getElementById("previewImage");
+const previewCaption = document.getElementById("previewCaption");
+const previewClose = document.getElementById("previewClose");
+const previewOverlay = document.getElementById("previewOverlay");
+const photoCards = document.querySelectorAll(".photo-card");
+
+function openPreview(card) {
+  const bgImage = window.getComputedStyle(card).backgroundImage;
+  const captionText = card.querySelector("span").textContent;
+
+  previewImage.style.backgroundImage = bgImage;
+  previewCaption.textContent = captionText;
+  previewModal.classList.add("show");
+  previewModal.setAttribute("aria-hidden", "false");
+}
+
+function closePreview() {
+  previewModal.classList.remove("show");
+  previewModal.setAttribute("aria-hidden", "true");
+}
+
+photoCards.forEach((card) => {
+  card.addEventListener("click", () => openPreview(card));
+});
+
+previewClose.addEventListener("click", closePreview);
+previewOverlay.addEventListener("click", closePreview);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && previewModal.classList.contains("show")) {
+    closePreview();
+  }
+});
+
 randomizeTreasurePositions();
 renderQuestion();
 updateProgress();

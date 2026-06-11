@@ -119,6 +119,18 @@
       </section>
     </main>
 
+    <!-- Modal Preview Foto -->
+    <div class="preview-modal" id="previewModal" aria-hidden="true" role="dialog">
+      <div class="preview-overlay" id="previewOverlay"></div>
+      <div class="preview-content">
+        <button class="preview-close" id="previewClose" aria-label="Tutup preview">&times;</button>
+        <div class="preview-card-wrapper">
+          <div class="preview-image" id="previewImage"></div>
+          <span class="preview-caption" id="previewCaption"></span>
+        </div>
+      </div>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
