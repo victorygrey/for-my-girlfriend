@@ -669,3 +669,96 @@ h3 {
 .preview-close:hover {
   transform: scale(1.2);
 }
+
+/* Style untuk Floating Music Controller */
+.music-controller {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 248, 243, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(125, 39, 72, 0.12);
+  transition: max-width 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  max-width: 48px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.music-controller:hover {
+  max-width: 320px;
+  padding-right: 18px;
+  box-shadow: var(--shadow);
+}
+
+.music-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background: var(--wine);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(125, 39, 72, 0.25);
+  font-size: 1.1rem;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.music-controller:hover .music-info {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.song-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--wine);
+}
+
+.song-artist {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+/* Animasi ketika musik sedang diputar */
+.music-controller.playing .music-btn {
+  animation: rotateDisc 5s linear infinite;
+  background: linear-gradient(135deg, var(--wine), var(--rose));
+}
+
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 820px) {
+  .music-controller {
+    bottom: auto;
+    top: 18px;
+    left: auto;
+    right: 18px;
+    z-index: 15;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}

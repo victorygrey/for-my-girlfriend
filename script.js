@@ -237,7 +237,10 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => activatePanel(tab.dataset.target));
 });
 
-startButton.addEventListener("click", () => activatePanel("quizPanel"));
+startButton.addEventListener("click", () => {
+  activatePanel("quizPanel");
+  playMusic();
+});
 heartTokens.forEach((token, index) => {
   token.addEventListener("click", () => findTreasure(token, index));
 });
@@ -278,6 +281,72 @@ document.addEventListener("keydown", (e) => {
     closePreview();
   }
 });
+
+// Background Music Logic
+const bgMusic = document.getElementById("bgMusic");
+const musicController = document.getElementById("musicController");
+const musicBtn = document.getElementById("musicBtn");
+const musicIcon = document.getElementById("musicIcon");
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    playMusic();
+  } else {
+    pauseMusic();
+  }
+}
+
+function playMusic() {
+  bgMusic.play()
+    .then(() => {
+      musicController.classList.add("playing");
+      musicIcon.textContent = "🎵";
+    })
+    .catch((err) => {
+      console.log("Autoplay prevented or audio load failed: ", err);
+    });
+}
+
+function pauseMusic() {
+  bgMusic.pause();
+  musicController.classList.remove("playing");
+  musicIcon.textContent = "🔇";
+}
+
+// Autoplay on load or first user interaction
+function autoPlayMusic() {
+  playMusic();
+  cleanUpAutoPlayListeners();
+}
+
+function cleanUpAutoPlayListeners() {
+  document.removeEventListener("click", autoPlayMusic);
+  document.removeEventListener("touchstart", autoPlayMusic);
+  document.removeEventListener("keydown", autoPlayMusic);
+}
+
+// Attempt to play immediately on load, or listen to first user gesture
+window.addEventListener("DOMContentLoaded", () => {
+  bgMusic.play()
+    .then(() => {
+      musicController.classList.add("playing");
+      musicIcon.textContent = "🎵";
+    })
+    .catch(() => {
+      // Autoplay blocked, wait for first user gesture
+      document.addEventListener("click", autoPlayMusic);
+      document.addEventListener("touchstart", autoPlayMusic);
+      document.addEventListener("keydown", autoPlayMusic);
+    });
+});
+
+// When the song ends, update UI (since loop is removed)
+bgMusic.addEventListener("ended", () => {
+  musicController.classList.remove("playing");
+  musicIcon.textContent = "🔇";
+});
+
+musicBtn.addEventListener("click", toggleMusic);
 
 randomizeTreasurePositions();
 renderQuestion();
