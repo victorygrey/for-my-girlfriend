@@ -1,16 +1,15 @@
 <!doctype html>
 <html lang="id">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Untuk Kamu</title>
-  <link rel="icon" type="image/png" href="./icon/couple.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu</title>
+    <link rel="icon" type="image/png" href="./icon/couple.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -65,14 +64,18 @@
           </div>
           <div class="quiz-layout">
             <div>
-              <p class="question-count" id="questionCount">Pertanyaan 1 dari 5</p>
+              <p class="question-count" id="questionCount">
+                Pertanyaan 1 dari 5
+              </p>
               <h3 id="questionText">Loading...</h3>
               <div class="answers" id="answers"></div>
             </div>
             <aside class="score-box">
               <span>Skor manis</span>
               <strong id="scoreText">0</strong>
-              <p id="quizFeedback">Pilih jawaban yang paling cocok menurut kamu.</p>
+              <p id="quizFeedback">
+                Pilih jawaban yang paling cocok menurut kamu.
+              </p>
             </aside>
           </div>
         </section>
@@ -83,15 +86,40 @@
             <h2>Treasure hunt</h2>
           </div>
           <p class="panel-note">
-            Cari 5 hati kecil yang tersembunyi di taman kenangan ini. Setiap hati
-            membawa satu potongan pesan.
+            Cari 5 hati kecil yang tersembunyi di taman kenangan ini. Setiap
+            hati membawa satu potongan pesan.
           </p>
           <div class="hunt-board" id="huntBoard">
-            <button class="heart-token token-1" aria-label="Harta tersembunyi 1">♡</button>
-            <button class="heart-token token-2" aria-label="Harta tersembunyi 2">♡</button>
-            <button class="heart-token token-3" aria-label="Harta tersembunyi 3">♡</button>
-            <button class="heart-token token-4" aria-label="Harta tersembunyi 4">♡</button>
-            <button class="heart-token token-5" aria-label="Harta tersembunyi 5">♡</button>
+            <button
+              class="heart-token token-1"
+              aria-label="Harta tersembunyi 1"
+            >
+              ♡
+            </button>
+            <button
+              class="heart-token token-2"
+              aria-label="Harta tersembunyi 2"
+            >
+              ♡
+            </button>
+            <button
+              class="heart-token token-3"
+              aria-label="Harta tersembunyi 3"
+            >
+              ♡
+            </button>
+            <button
+              class="heart-token token-4"
+              aria-label="Harta tersembunyi 4"
+            >
+              ♡
+            </button>
+            <button
+              class="heart-token token-5"
+              aria-label="Harta tersembunyi 5"
+            >
+              ♡
+            </button>
             <div class="memory-lane">
               <span>tempat pertama kita tertawa lama</span>
               <span>lagu yang selalu bikin kangen</span>
@@ -120,10 +148,21 @@
     </main>
 
     <!-- Modal Preview Foto -->
-    <div class="preview-modal" id="previewModal" aria-hidden="true" role="dialog">
+    <div
+      class="preview-modal"
+      id="previewModal"
+      aria-hidden="true"
+      role="dialog"
+    >
       <div class="preview-overlay" id="previewOverlay"></div>
       <div class="preview-content">
-        <button class="preview-close" id="previewClose" aria-label="Tutup preview">&times;</button>
+        <button
+          class="preview-close"
+          id="previewClose"
+          aria-label="Tutup preview"
+        >
+          &times;
+        </button>
         <div class="preview-card-wrapper">
           <div class="preview-image" id="previewImage"></div>
           <span class="preview-caption" id="previewCaption"></span>
@@ -148,5 +187,13 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script src="https://unpkg.com/@vercel/analytics/dist/vercel-analytics.iife.js"></script>
   </body>
 </html>
